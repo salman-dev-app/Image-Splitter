@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Splitter Tool</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- JSZip Library for Zipping Files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-white font-sans antialiased">
+
+    <!-- Header -->
+    <header class="bg-gray-800 shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-cyan-400">🖼️ Image Splitter</h1>
+            <a href="https://github.com/salman-dev-app" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                By Salman
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Left Panel: Controls -->
+            <div class="md:col-span-1 bg-gray-800 p-6 rounded-lg shadow-xl">
+                <h2 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2">1. Upload Image</h2>
+                <div id="drop-zone" class="border-2 border-dashed border-gray-600 p-8 text-center rounded-lg cursor-pointer hover:border-cyan-400 hover:bg-gray-700 transition-all">
+                    <i class="fas fa-file-upload text-4xl text-gray-500"></i>
+                    <p class="mt-2 text-gray-400">Drag & drop an image here, or click to select</p>
+                    <input type="file" id="file-input" class="hidden" accept="image/png, image/jpeg, image/webp">
+                </div>
+
+                <h2 class="text-xl font-semibold mt-8 mb-4 border-b border-gray-700 pb-2">2. Configure Split</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label for="rows" class="block text-sm font-medium text-gray-300">Rows</label>
+                        <input type="number" id="rows" value="3" min="1" class="mt-1 w-full bg-gray-700 border border-gray-600 rounded-md p-2 text-white focus:ring-cyan-500 focus:border-cyan-500">
+                    </div>
+                    <div>
+                        <label for="cols" class="block text-sm font-medium text-gray-300">Columns</label>
+                        <input type="number" id="cols" value="3" min="1" class="mt-1 w-full bg-gray-700 border border-gray-600 rounded-md p-2 text-white focus:ring-cyan-500 focus:border-cyan-500">
+                    </div>
+                    <div>
+                        <label for="format" class="block text-sm font-medium text-gray-300">Output Format</label>
+                        <select id="format" class="mt-1 w-full bg-gray-700 border border-gray-600 rounded-md p-2 text-white focus:ring-cyan-500 focus:border-cyan-500">
+                            <option value="png">PNG</option>
+                            <option value="jpeg">JPEG</option>
+                            <option value="webp">WEBP</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="split-button" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-4 rounded-lg mt-8 transition-transform transform hover:scale-105 disabled:bg-gray-600 disabled:cursor-not-allowed" disabled>
+                    <i class="fas fa-cut mr-2"></i>Split Image
+                </button>
+            </div>
+
+            <!-- Right Panel: Image Preview & Results -->
+            <div class="md:col-span-2 bg-gray-800 p-6 rounded-lg shadow-xl">
+                <h2 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2">Preview & Results</h2>
+                <div id="preview-container" class="w-full h-80 bg-gray-700/50 rounded-lg flex items-center justify-center relative overflow-hidden">
+                    <p id="preview-text" class="text-gray-500">Image preview will appear here</p>
+                    <img id="image-preview" src="" alt="Image Preview" class="hidden max-w-full max-h-full object-contain">
+                </div>
+
+                <div id="results-section" class="mt-6 hidden">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold">Split Pieces</h3>
+                        <button id="download-zip-button" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition-transform transform hover:scale-105">
+                            <i class="fas fa-file-archive mr-2"></i>Download All (.zip)
+                        </button>
+                    </div>
+                    <div id="results-grid" class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-4">
+                        <!-- Split images will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 mt-10 shadow-inner">
+        <div class="container mx-auto px-6 py-4 text-center text-gray-400">
+            <p>&copy; 2025 Image Splitter. Developed with ❤️ by <a href="https://github.com/salman-dev-app" target="_blank" class="text-cyan-400 hover:underline">Salman</a>.</p>
+            <div class="mt-2">
+                <a href="https://github.com/salman-dev-app" target="_blank" class="mx-2 hover:text-white"><i class="fab fa-github"></i> GitHub</a> |
+                <a href="https://t.me/Otakuosenpai" target="_blank" class="mx-2 hover:text-white"><i class="fab fa-telegram"></i> Telegram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+      </html>
