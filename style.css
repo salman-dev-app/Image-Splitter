@@ -1,56 +1,154 @@
-/* Custom styles to complement Tailwind CSS */
-#drop-zone.dragover {
-    border-color: #22d3ee; /* cyan-400 */
-    background-color: #374151; /* gray-700 */
-}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500&display=swap');
 
-.result-image-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 0.5rem;
-    background-color: #4b5563; /* gray-600 */
-    border: 1px solid #374151; /* gray-700 */
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
 }
+.font-orbitron { font-family: 'Orbitron', sans-serif; }
 
-.result-image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.result-image-container:hover .result-image {
-    transform: scale(1.1);
-}
-
-.download-overlay {
-    position: absolute;
+/* Animated Background Grid */
+.grid-background {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background-image: linear-gradient(rgba(0, 255, 255, 0.07) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: move-grid 20s linear infinite;
+    z-index: -1;
+}
+@keyframes move-grid {
+    from { background-position: 0 0; }
+    to { background-position: 30px 60px; }
+}
+.futuristic-bg {
+    background-color: #020617; /* slate-950 */
+}
+
+/* Futuristic Panel with Animated Border */
+.futuristic-panel {
+    position: relative;
+    background: rgba(10, 25, 47, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+.futuristic-panel::before, .futuristic-panel::after {
+    content: '';
+    position: absolute;
+    border-radius: 1rem;
+    inset: -2px;
+    background: conic-gradient(from var(--angle), #020617, #0891b2, #020617);
+    animation: spin 5s linear infinite;
+    z-index: -1;
+}
+.futuristic-panel::after {
+    filter: blur(15px);
+}
+@property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+@keyframes spin { to { --angle: 360deg; } }
+
+.panel-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    color: #94a3b8;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    width: 30px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.hamburger-menu span {
+    width: 100%;
+    height: 3px;
+    background-color: #cbd5e1;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+.hamburger-menu.open span:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+.hamburger-menu.open span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.open span:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 288px;
+    background: rgba(2, 6, 23, 0.8);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(0, 255, 255, 0.3);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 50;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar.open {
+    transform: translateX(0);
+}
+.sidebar-link {
     display: flex;
     align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    color: #cbd5e1;
+    transition: all 0.2s ease;
 }
-
-.result-image-container:hover .download-overlay {
-    opacity: 1;
-}
-
-.download-link {
+.sidebar-link:hover {
+    background-color: rgba(0, 255, 255, 0.1);
     color: white;
-    font-size: 1.5rem;
-    text-decoration: none;
-    transform: scale(0.9);
-    transition: transform 0.2s ease;
 }
 
-.download-link:hover {
-    transform: scale(1);
-    color: #22d3ee; /* cyan-400 */
+/* Theme Toggle Switch */
+.theme-switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+.theme-switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #334155; transition: .4s; border-radius: 24px; }
+.slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background-color: #22d3ee; }
+input:checked + .slider:before { transform: translateX(20px); }
+
+/* --- Other Styles (Inputs, Buttons, etc.) --- */
+.futuristic-input, .futuristic-dropzone, .preview-box {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #334155;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+.futuristic-input { width: 100%; padding: 0.75rem 1rem; color: #f1f5f9; }
+.futuristic-input:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 15px rgba(34, 211, 238, 0.3); }
+.futuristic-dropzone { padding: 1.5rem; text-align: center; cursor: pointer; border-style: dashed; }
+.futuristic-dropzone:hover, .futuristic-dropzone.dragover { border-color: #22d3ee; background-color: rgba(0, 255, 255, 0.05); }
+.preview-box { width: 100%; min-height: 250px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; margin-bottom: 2rem; }
+.futuristic-button, .futuristic-button-green { /* Same as before */ }
+.footer-link { font-size: 1.5rem; color: #94a3b8; transition: color 0.3s, transform 0.3s; }
+.footer-link:hover { color: #22d3ee; transform: scale(1.1); }
+
+/* Staggered Animation for Results */
+.result-item {
+    animation: fade-in-up 0.5s ease-out forwards;
+    opacity: 0;
+}
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
