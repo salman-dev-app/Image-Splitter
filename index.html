@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexus Splitter - Fast & Efficient</title>
-    <!-- Tailwind CSS, Custom CSS, JSZip, Font Awesome, Google Fonts links (same as before) -->
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Stylesheets and Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -13,13 +17,10 @@
 </head>
 <body class="futuristic-bg text-gray-200 font-roboto antialiased">
 
-    <!-- Header, Sidebar, Overlay (mostly same structure) -->
     <header class="sticky top-0 z-50 bg-slate-950/50 backdrop-blur-xl border-b border-cyan-500/20">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-3 group">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-cyan-400 group-hover:animate-pulse">
-                    <path d="M3 3H9V9H3V3ZM3 15H9V21H3V15ZM15 3H21V9H15V3ZM15 15H21V21H15V15ZM11 6H13V4H11V6ZM11 13H13V11H11V13ZM11 20H13V18H11V20ZM6 11H4V13H6V11ZM13 11H15V13H13V11ZM18 11H20V13H18V11Z" fill="currentColor"/>
-                </svg>
+                <img src="favicon.svg" alt="Nexus Logo" class="w-7 h-7 group-hover:animate-pulse">
                 <h1 class="text-2xl font-orbitron font-bold text-white tracking-wider">NEXUS</h1>
             </a>
             <button id="menu-button" class="hamburger-menu z-50"><span></span><span></span><span></span></button>
@@ -32,11 +33,10 @@
             <a href="settings.html" class="sidebar-link"><i class="fas fa-cog w-6"></i> Settings</a>
             <a href="about.html" class="sidebar-link"><i class="fas fa-info-circle w-6"></i> About</a>
         </nav>
-        <!-- Author credit section -->
         <div class="mt-auto">
              <p class="text-sm text-gray-400 mb-4">Project by</p>
             <a href="https://github.com/salman-dev-app" target="_blank" class="author-card">
-                <img src="https://i.ibb.co.com/Cpb1nd0g/20251008-094018.png" alt="Salman's Avatar" class="author-avatar">
+                <img src="https://avatars.githubusercontent.com/u/89622955?v=4" alt="Salman's Avatar" class="author-avatar">
                 <div>
                     <h3 class="font-bold text-white">Salman</h3>
                     <p class="text-xs text-gray-400">View Profile</p>
@@ -46,7 +46,6 @@
     </aside>
     <div id="overlay" class="fixed inset-0 bg-black/60 z-40 hidden"></div>
 
-    <!-- Main Content -->
     <main class="container mx-auto px-6 py-12">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div class="lg:col-span-1 futuristic-panel p-6 rounded-xl space-y-8 sticky top-28">
@@ -61,7 +60,6 @@
 
                 <div>
                     <h2 class="panel-title">2. CONFIGURE SPLIT</h2>
-                    <!-- ... Config inputs (rows, cols, format) are the same -->
                      <div class="space-y-4">
                         <div><label for="rows">Rows</label><input type="number" id="rows" value="3" min="1" class="futuristic-input"></div>
                         <div><label for="cols">Columns</label><input type="number" id="cols" value="3" min="1" class="futuristic-input"></div>
@@ -94,7 +92,6 @@
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-transparent mt-12">
         <div class="container mx-auto px-6 py-6 text-center text-slate-400 border-t border-cyan-500/20">
             <p>&copy; 2025 Nexus Splitter | Developed by Salman</p>
