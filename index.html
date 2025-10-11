@@ -3,100 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Splitter Tool</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Nexus Splitter</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
-    <!-- JSZip Library for Zipping Files -->
+    <!-- JSZip Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-900 text-white font-sans antialiased">
+<body class="futuristic-bg text-gray-200 font-roboto antialiased">
+    <div class="grid-background"></div>
 
     <!-- Header -->
-    <header class="bg-gray-800 shadow-lg">
+    <header class="sticky top-0 z-50 bg-black/30 backdrop-blur-xl border-b border-cyan-500/20">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-cyan-400">🖼️ Image Splitter</h1>
-            <a href="https://github.com/salman-dev-app" target="_blank" class="text-gray-400 hover:text-white transition-colors">
-                By Salman
+            <a href="#" class="flex items-center gap-3 group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-cyan-400 group-hover:animate-pulse">
+                    <path d="M3 3H9V9H3V3ZM3 15H9V21H3V15ZM15 3H21V9H15V3ZM15 15H21V21H15V15ZM11 6H13V4H11V6ZM11 13H13V11H11V13ZM11 20H13V18H11V20ZM6 11H4V13H6V11ZM13 11H15V13H13V11ZM18 11H20V13H18V11Z" fill="currentColor"/>
+                </svg>
+                <h1 class="text-2xl font-orbitron font-bold text-white tracking-wider">NEXUS</h1>
             </a>
+            <button id="menu-button" class="hamburger-menu z-50">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
+    <!-- Sidebar Menu -->
+    <aside id="sidebar" class="sidebar">
+        <h2 class="text-xl font-orbitron text-white mb-8 border-b border-cyan-500/20 pb-3">OPTIONS</h2>
+        <nav class="flex flex-col space-y-2">
+            <div class="sidebar-link flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-palette w-6"></i> Theme
+                </div>
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <a href="#" class="sidebar-link"><i class="fas fa-cog w-6"></i> Settings</a>
+            <a href="#" class="sidebar-link"><i class="fas fa-info-circle w-6"></i> About</a>
+        </nav>
+        <div class="mt-auto">
+            <p class="text-sm text-gray-400 mb-4">Project by</p>
+            <a href="https://github.com/salman-dev-app" target="_blank" class="flex items-center gap-4 group p-2 rounded-lg hover:bg-cyan-500/10 transition-colors">
+                <img src="https://avatars.githubusercontent.com/u/89622955?v=4" alt="Salman's Avatar" class="w-10 h-10 rounded-full border-2 border-cyan-500/50 group-hover:border-cyan-400 transition-all">
+                <div>
+                    <h3 class="font-bold text-white">Salman</h3>
+                    <p class="text-xs text-gray-400">View Profile</p>
+                </div>
+            </a>
+        </div>
+    </aside>
+    <div id="overlay" class="fixed inset-0 bg-black/60 z-40 hidden"></div>
+
     <!-- Main Content -->
-    <main class="container mx-auto px-6 py-10">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Left Panel: Controls -->
-            <div class="md:col-span-1 bg-gray-800 p-6 rounded-lg shadow-xl">
-                <h2 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2">1. Upload Image</h2>
-                <div id="drop-zone" class="border-2 border-dashed border-gray-600 p-8 text-center rounded-lg cursor-pointer hover:border-cyan-400 hover:bg-gray-700 transition-all">
-                    <i class="fas fa-file-upload text-4xl text-gray-500"></i>
-                    <p class="mt-2 text-gray-400">Drag & drop an image here, or click to select</p>
-                    <input type="file" id="file-input" class="hidden" accept="image/png, image/jpeg, image/webp">
-                </div>
-
-                <h2 class="text-xl font-semibold mt-8 mb-4 border-b border-gray-700 pb-2">2. Configure Split</h2>
-                <div class="space-y-4">
-                    <div>
-                        <label for="rows" class="block text-sm font-medium text-gray-300">Rows</label>
-                        <input type="number" id="rows" value="3" min="1" class="mt-1 w-full bg-gray-700 border border-gray-600 rounded-md p-2 text-white focus:ring-cyan-500 focus:border-cyan-500">
-                    </div>
-                    <div>
-                        <label for="cols" class="block text-sm font-medium text-gray-300">Columns</label>
-                        <input type="number" id="cols" value="3" min="1" class="mt-1 w-full bg-gray-700 border border-gray-600 rounded-md p-2 text-white focus:ring-cyan-500 focus:border-cyan-500">
-                    </div>
-                    <div>
-                        <label for="format" class="block text-sm font-medium text-gray-300">Output Format</label>
-                        <select id="format" class="mt-1 w-full bg-gray-700 border border-gray-600 rounded-md p-2 text-white focus:ring-cyan-500 focus:border-cyan-500">
-                            <option value="png">PNG</option>
-                            <option value="jpeg">JPEG</option>
-                            <option value="webp">WEBP</option>
-                        </select>
+    <main class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            
+            <div class="lg:col-span-1 futuristic-panel p-6 rounded-xl space-y-8 sticky top-28">
+                <div>
+                    <h2 class="panel-title">1. UPLOAD IMAGE</h2>
+                    <div id="drop-zone" class="futuristic-dropzone">
+                        <i class="fas fa-cloud-upload-alt text-4xl text-cyan-400/50 mb-3"></i>
+                        <p>Drag & drop or <span class="text-cyan-300 font-semibold">browse files</span></p>
+                        <input type="file" id="file-input" class="hidden" accept="image/png, image/jpeg, image/webp">
                     </div>
                 </div>
 
-                <button id="split-button" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-4 rounded-lg mt-8 transition-transform transform hover:scale-105 disabled:bg-gray-600 disabled:cursor-not-allowed" disabled>
-                    <i class="fas fa-cut mr-2"></i>Split Image
+                <div>
+                    <h2 class="panel-title">2. CONFIGURE SPLIT</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="rows">Rows</label>
+                            <input type="number" id="rows" value="3" min="1" class="futuristic-input">
+                        </div>
+                        <div>
+                            <label for="cols">Columns</label>
+                            <input type="number" id="cols" value="3" min="1" class="futuristic-input">
+                        </div>
+                         <div>
+                            <label for="format">Format</label>
+                            <select id="format" class="futuristic-input">
+                                <option value="png">PNG</option>
+                                <option value="jpeg">JPEG</option>
+                                <option value="webp">WEBP</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="split-button" class="futuristic-button" disabled>
+                    <i class="fas fa-project-diagram mr-2"></i>INITIATE SPLIT
                 </button>
             </div>
 
-            <!-- Right Panel: Image Preview & Results -->
-            <div class="md:col-span-2 bg-gray-800 p-6 rounded-lg shadow-xl">
-                <h2 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2">Preview & Results</h2>
-                <div id="preview-container" class="w-full h-80 bg-gray-700/50 rounded-lg flex items-center justify-center relative overflow-hidden">
-                    <p id="preview-text" class="text-gray-500">Image preview will appear here</p>
-                    <img id="image-preview" src="" alt="Image Preview" class="hidden max-w-full max-h-full object-contain">
+            <div class="lg:col-span-2 futuristic-panel p-6 rounded-xl min-h-[300px]">
+                <h2 class="panel-title border-b border-cyan-500/20 pb-3">PREVIEW & RESULTS</h2>
+                <div id="preview-container" class="preview-box">
+                    <p id="preview-text" class="text-slate-500 font-orbitron">Awaiting Image Upload...</p>
+                    <img id="image-preview" src="" alt="Image Preview" class="hidden max-w-full max-h-[400px] object-contain">
                 </div>
 
                 <div id="results-section" class="mt-6 hidden">
-                    <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-lg font-semibold">Split Pieces</h3>
-                        <button id="download-zip-button" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition-transform transform hover:scale-105">
-                            <i class="fas fa-file-archive mr-2"></i>Download All (.zip)
+                    <div class="flex flex-wrap justify-between items-center mb-4 gap-4">
+                        <h3 class="panel-title">OUTPUT MATRIX</h3>
+                        <button id="download-zip-button" class="futuristic-button-green">
+                            <i class="fas fa-file-archive mr-2"></i>DOWNLOAD BUNDLE
                         </button>
                     </div>
-                    <div id="results-grid" class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-4">
-                        <!-- Split images will be inserted here -->
-                    </div>
+                    <div id="results-grid" class="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-4"></div>
                 </div>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 mt-10 shadow-inner">
-        <div class="container mx-auto px-6 py-4 text-center text-gray-400">
-            <p>&copy; 2025 Image Splitter. Developed with ❤️ by <a href="https://github.com/salman-dev-app" target="_blank" class="text-cyan-400 hover:underline">Salman</a>.</p>
-            <div class="mt-2">
-                <a href="https://github.com/salman-dev-app" target="_blank" class="mx-2 hover:text-white"><i class="fab fa-github"></i> GitHub</a> |
-                <a href="https://t.me/Otakuosenpai" target="_blank" class="mx-2 hover:text-white"><i class="fab fa-telegram"></i> Telegram</a>
+    <footer class="bg-transparent mt-12">
+        <div class="container mx-auto px-6 py-6 text-center text-slate-400 border-t border-cyan-500/20">
+            <p>&copy; 2025 Nexus Splitter | Developed by Salman</p>
+            <div class="mt-3 flex justify-center gap-6">
+                <a href="https://github.com/salman-dev-app" target="_blank" class="footer-link"><i class="fab fa-github"></i></a>
+                <a href="https://t.me/Otakuosenpai" target="_blank" class="footer-link"><i class="fab fa-telegram"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- Custom JavaScript -->
     <script src="script.js"></script>
 </body>
-      </html>
+</html>
