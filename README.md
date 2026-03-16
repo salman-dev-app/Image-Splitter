@@ -1,51 +1,121 @@
-# ⚡ Nexus Splitter
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,100:4ECDC4&height=200&text=Image-Splitter&fontSize=42&fontColor=fff&animation=fadeIn&fontAlignY=40&desc=Split%20images%20into%20grid%20tiles%20with%20ease&descAlignY=60&descSize=14"/>
+</div>
 
-**Nexus Splitter** is a high-performance, futuristic web tool designed for fast and efficient batch image splitting. Optimized for speed and responsiveness, this tool allows you to upload and process multiple images simultaneously, right in your browser.
+<p align="center">
+  <a href="https://github.com/salman-dev-app/Image-Splitter">
+    <img src="https://readme-typing-svg.demolab.com?font=Tagesschrift&size=22&duration=2000&pause=800&color=F7F7F7&background=FF001400&center=true&vCenter=true&multiline=true&width=500&height=70&lines=Image-Splitter;Split+images+into+grid+tiles+with+ease" alt="Typing SVG" />
+  </a>
+</p>
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsalman-dev-app%2Fnexus-splitter)
+<p align="center">
+  <img src="https://img.shields.io/badge/Language-HTML/JS-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+  <img src="https://img.shields.io/github/last-commit/salman-dev-app/Image-Splitter?style=for-the-badge&color=00D9FF&label=LAST%20UPDATED&logo=github&logoColor=white" />
+  <img src="https://img.shields.io/github/stars/salman-dev-app/Image-Splitter?style=for-the-badge&color=FF6B6B&logo=github&logoColor=white" />
+</p>
 
----
-
-## ✨ Core Features
-
--   **🚀 High-Performance Design**: Built for speed. No lags or heavy animations, ensuring a smooth experience even on mobile devices.
--   **🖼️ Batch Processing**: Upload and split multiple images at once. Perfect for handling large sets of images efficiently.
--   **📂 Flexible Download Options**:
-    -   Download split pieces as an individual `.zip` for each image.
-    -   Download all processed images together in a single **Master ZIP** file.
--   **🔒 Fully Client-Side**: Your privacy is paramount. All processing is done in your browser, and your images are never uploaded to a server.
--   **🤖 Futuristic & Clean UI**: A modern, cyberpunk-inspired interface that is both beautiful and intuitive to use.
--   **📱 Fully Responsive**: Works seamlessly across desktops, tablets, and mobile phones.
-
----
-
-## 🚀 How to Use
-
-1.  **Upload**: Drag and drop one or multiple images, or click to browse files from your device.
-2.  **Manage Queue**: Review your uploaded images. You can remove any image from the queue before processing.
-3.  **Configure**: Set the desired number of rows, columns, and the output format (PNG, JPG, WEBP) for all images.
-4.  **Split**: Click the "Initiate Split" button to process the entire batch.
-5.  **Download**:
-    -   Download a `.zip` file for each individual image's results.
-    -   Click "Download Master ZIP" to get everything in a single, organized archive.
+<p align="center">
+  <a href="https://github.com/salman-dev-app/Image-Splitter">
+    <img src="https://img.shields.io/badge/GitHub-View_Repository-FF6B6B?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+  <a href="https://image-splitter-sandy.vercel.app">
+    <img src="https://img.shields.io/badge/Live_Demo-Visit_Site-4ECDC4?style=for-the-badge&logo=vercel&logoColor=white" />
+  </a>
+</p>
 
 ---
 
-## 🛠️ Tech Stack
-
-![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/-TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![JSZip](https://img.shields.io/badge/-JSZip-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black&label=JSZip)
+<div align="center">
+  <h3>
+    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" alt="Star" width="25" height="25" style="vertical-align: middle;" /> 
+    Image Splitter — Split images into grid tiles with ease
+  </h3>
+</div>
 
 ---
 
-## 👤 Author
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Clipboard.png" alt="Clipboard" width="30" height="30" style="vertical-align: middle;" /> About This Project
 
-This project was brought to life by **Salman**.
+<p>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>Repository:</strong> <a href="https://github.com/salman-dev-app/Image-Splitter">Image-Splitter</a><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>Author:</strong> <a href="https://github.com/salman-dev-app">Md Salman Biswas</a><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>Primary Language:</strong> HTML/JS<br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>Live Demo:</strong> <a href="https://image-splitter-sandy.vercel.app">https://image-splitter-sandy.vercel.app</a><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>License:</strong> MIT
+</p>
 
--   [![GitHub](https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/salman-dev-app)
--   [![Telegram](https://img.shields.io/badge/-Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Otakuosenpai)
--  [![Facebook](https://img.shields.io/badge/-Facebook-3B5998?style=flat&logo=Facebook&logoColor=white)](https://www.facebook.com/share/17XvxrUj56/)
-> *“Efficiency in design, power in performance.”*
+---
+
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="30" height="30" style="vertical-align: middle;" /> Features
+
+<p><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>Clean Architecture</strong> — Built following SOLID principles and DRY methodology</p>
+<p><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>Scalable Design</strong> — Engineered for performance and extensibility</p>
+<p><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>Developer Friendly</strong> — Well-structured codebase with clear documentation</p>
+<p><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>Production Ready</strong> — Battle-tested and deployed in real environments</p>
+
+---
+
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Wrench.png" alt="Wrench" width="30" height="30" style="vertical-align: middle;" /> Tech Stack
+
+<div align="center">
+  <img src="https://skillicons.dev/icons?i=git,github,docker,vscode&theme=dark" />
+</div>
+
+---
+
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Scroll.png" alt="Scroll" width="30" height="30" style="vertical-align: middle;" /> Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/salman-dev-app/Image-Splitter.git
+
+# Navigate to the project
+cd Image-Splitter
+
+# Install dependencies (if applicable)
+# Follow language-specific setup instructions below
+```
+
+---
+
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Globe%20Showing%20Americas.png" alt="Globe" width="30" height="30" style="vertical-align: middle;" /> Connect With The Author
+
+<p align="center">
+  <a href="mailto:mdsalmanhelp@gmail.com">
+    <img src="https://img.shields.io/badge/Hire_Me-Send_Email-FF6B6B?style=for-the-badge&logo=minutemailer&logoColor=white" />
+  </a>
+  <a href="https://wa.me/8801840933137">
+    <img src="https://img.shields.io/badge/WhatsApp-Direct_Chat-4ECDC4?style=for-the-badge&logo=whatsapp&logoColor=white" />
+  </a>
+  <a href="https://github.com/salman-dev-app">
+    <img src="https://img.shields.io/badge/GitHub-Follow_Me-00D9FF?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</p>
+
+---
+
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Scroll.png" alt="License" width="30" height="30" style="vertical-align: middle;" /> License
+
+<div align="center">
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge&logo=open-source-initiative&logoColor=white" />
+  </a>
+</div>
+
+<p align="center">
+  This project is licensed under the MIT License — feel free to use and contribute.
+</p>
+
+---
+
+<footer align="center">
+  <p>© 2024-2026 <a href="https://github.com/salman-dev-app">Md Salman Biswas</a> · All rights reserved</p>
+  <p>
+    <a href="https://github.com/salman-dev-app">
+      <img src="https://img.shields.io/badge/Profile_Status-Active-4ECDC4?style=flat" alt="Status" />
+    </a>
+  </p>
+  <p>Engineered with ❤️ by <a href="https://github.com/salman-dev-app">Md Salman Biswas</a></p>
+</footer>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,100:4ECDC4&height=120&section=footer"/>
